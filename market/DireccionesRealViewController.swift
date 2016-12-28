@@ -114,7 +114,7 @@ class DireccionesRealViewController: UIViewController, UITableViewDelegate, UITa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
-/*******************************CREAR CELL***********************************************************/
+/*******************************CELL***********************************************************/
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "DireccionesRealViewCell") as! DireccionesRealViewCell
@@ -127,11 +127,12 @@ class DireccionesRealViewController: UIViewController, UITableViewDelegate, UITa
         cell.direccion1.text = dir.address1
         cell.ciudad.text = dir.city
         cell.pais.text = "Ecuador"
-     /*   cell.referencia.text = dir.reference
-        cell.total.text = "$\(String(format: "%.2f", Double(dir.total_paid)!))"
-        cell.pago.text = dir.payment
-  //      buscarEstado(web: cell.esttus, order: order)
-      */
+        cell.direccion2.text = dir.address2
+        cell.alias.text = dir.alias
+        cell.telefono1.text = dir.phone
+        cell.telefono2.text = dir.phone_mobile
+        
+     
         return cell
     }
     
@@ -156,7 +157,7 @@ class DireccionesRealViewController: UIViewController, UITableViewDelegate, UITa
     }
  */
     @IBAction func btnAtras(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+       self.dismiss(animated: true, completion: nil)
     }
     
     func mensaje(mensaje: String, cerrar: Bool) {

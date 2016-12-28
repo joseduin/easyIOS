@@ -18,6 +18,9 @@ class DireccionesRealViewCell: UITableViewCell {
     @IBOutlet weak var ciudad: UILabel!
     @IBOutlet weak var pais: UILabel!
     @IBOutlet weak var telefono1: UILabel!
+    @IBOutlet weak var alias: UILabel!
+    @IBOutlet weak var direccion2: UILabel!
+    @IBOutlet weak var telefono2: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

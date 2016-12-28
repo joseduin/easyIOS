@@ -31,18 +31,17 @@ class DireccionRealViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (self.dirPass.alias==""){
-            self.navigationItem.title = "Dirección"
+        /*if (self.dirPass.alias==""){
+           */ self.navigationItem.title = "Dirección"/*
         }else{
             self.navigationItem.title = dirPass.alias
             nuevaDir = true
-            
-        }
+        }*/
         navigationController?.navigationBar.barTintColor = UIColor(red:255/255.0, green: 98/255.0, blue: 18/255.0, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         // Poner los valores en los txt
-        
+       // txtNombre.text = dirPass.firstname
     }
     
     
