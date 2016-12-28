@@ -93,12 +93,14 @@ class DireccionesRealViewController: UIViewController, UITableViewDelegate, UITa
     
     // Enviar dir a la otra vista
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
         if segue.identifier == "direccionRealView" {
             
             let nav = segue.destination as! UINavigationController
             let addEventViewController = nav.topViewController as! DireccionRealViewController
             
             addEventViewController.dirPass = self.dirPass
+         
         }
     }
     
@@ -137,8 +139,12 @@ class DireccionesRealViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+     
         self.dirPass = items[indexPath.row]
+       
         performSegue(withIdentifier: "direccionRealView", sender: nil)
+      
+        
     }
  /*
     func buscarEstado(web: UIWebView, order: Order) {

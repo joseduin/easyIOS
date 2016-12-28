@@ -26,26 +26,39 @@ class DireccionRealViewController: UIViewController {
     @IBOutlet weak var txtTelefono2: UITextField!
     @IBOutlet weak var txtAdicional: UITextField!
     @IBOutlet weak var txtAlias: UITextField!
+ 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*if (self.dirPass.alias==""){
-           */ self.navigationItem.title = "Dirección"/*
-        }else{
-            self.navigationItem.title = dirPass.alias
+        if (self.dirPass.alias == ""){
+            self.navigationItem.title = "Dirección"
             nuevaDir = true
-        }*/
+        }else{
+            self.navigationItem.title = self.dirPass.alias
+            txtNombre.text = dirPass.firstname
+            txtApellido.text = dirPass.lastname
+            txtCompany.text = dirPass.company
+            txtDireccion1.text = dirPass.address1
+            txtDireccion2.text = dirPass.address2
+            txtCiudad.text = dirPass.city
+            txtEstado.text = "Azuay" //dirPass.id_city
+            txtPais.text = "Ecuador" //dirPass.id_country 81=ecuador
+            txtTelefono1.text = dirPass.phone
+            txtTelefono2.text = dirPass.phone_mobile
+            txtAdicional.text = dirPass.other
+            txtAlias.text = dirPass.alias
+
+        }
         navigationController?.navigationBar.barTintColor = UIColor(red:255/255.0, green: 98/255.0, blue: 18/255.0, alpha: 1)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
         // Poner los valores en los txt
-       // txtNombre.text = dirPass.firstname
-    }
+         }
     
     
-    @IBAction func guardar() {
+    @IBAction func guardar(_ sender: Any) {
         if (nuevaDir) {
             agregarNuevaDireccion()
         } else {
@@ -67,15 +80,15 @@ class DireccionRealViewController: UIViewController {
         let phone_mobile = txtTelefono2.text
         let other = txtAdicional.text
         let alias = txtAlias.text
+        
 
-
-        if ((firstname?.isEmpty)! && (lastname?.isEmpty)! && (address1?.isEmpty)! && (city?.isEmpty)! && (state?.isEmpty)! && (id_country.isEmpty) && ((phone?.isEmpty)! || (phone_mobile?.isEmpty)!) && (alias?.isEmpty)!) {
+        if ( (firstname?.isEmpty)! || (lastname?.isEmpty)! || (address1?.isEmpty)! || (city?.isEmpty)! || (state?.isEmpty)! || (id_country.isEmpty) || ((phone?.isEmpty)! && (phone_mobile?.isEmpty)!) || (alias?.isEmpty)!) {
             
             mensaje(mensaje: "Rellene los campos requeridos", cerrar: false)
             return;
         }
       
-        let id = 8 //ADDRESS ID?
+        let id = dirPass.id //ADDRESS ID?
         
         //POST?
         let params: [String: Any] = ["id": id, "firstname": firstname!, "lastname": lastname!, "company": company!, "address1": address1!, "address2": address2!, "city": city!, "state": state!, "id_country": id_country, "phone": phone!, "phone_mobile": phone_mobile!, "other": other!, "alias": alias!]
