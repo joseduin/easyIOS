@@ -84,16 +84,16 @@ class InicioViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let index = indexPath[1]
         switch index {
         case 1:
-            print(items[index].title)
+            self.performSegue(withIdentifier: "direccionesView", sender: self)
             break
-        case 2:
+        case 2:            
             print(items[index].title)
             break
         case 4:
             self.performSegue(withIdentifier: "datosView", sender: self)
             break
         case 5:
-            self.performSegue(withIdentifier: "direccionesView", sender: self)
+            self.performSegue(withIdentifier: "direccionesRealView", sender: self)
             break
         case 6:
             btnLogOut()
